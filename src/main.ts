@@ -3,6 +3,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 async function run(): Promise<void> {
+  core.debug("Hello")
   try {
     let envKeys
     if (core.getInput('sort_keys') === 'true') {
