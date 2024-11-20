@@ -42,22 +42,6 @@ async function run(): Promise<void> {
     const fileName = core.getInput('file_name') || '.env'
     let filePath = '.'
 
-    if (filePath === '' || filePath === 'None') {
-      filePath = '.'
-    }
-
-    if (directory === '') {
-      filePath = path.join(filePath, fileName)
-    } else if (directory.startsWith('/')) {
-      throw new Error(
-        'Absolute paths are not allowed. Please use a relative path.'
-      )
-    } else if (directory.startsWith('./')) {
-      filePath = path.join(filePath, directory.slice(2), fileName)
-    } else {
-      filePath = path.join(filePath, directory, fileName)
-    }
-
     core.debug(`Creating file: ${filePath}`)
 
     fs.writeFileSync(filePath, outFile)
