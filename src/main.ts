@@ -40,7 +40,7 @@ async function run(): Promise<void> {
 
     const directory = core.getInput('directory') || ''
     const fileName = core.getInput('file_name') || '.env'
-    let filePath = process.env['GITHUB_WORKSPACE'] || '.'
+    let filePath = '.'
 
     if (filePath === '' || filePath === 'None') {
       filePath = '.'
